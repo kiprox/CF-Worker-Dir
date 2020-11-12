@@ -1,27 +1,27 @@
 /**
- *  自定义网站配置 
+ *  Konfigurasi situs web kustom 
  */
 const config = {
-  title: "自定义导航",                 //write your website title
+  title: "Navigasi kustom",                 //write your website title
   subtitle: "Cloudflare Workers Dir", //write your website subtitle
   logo_icon: "sitemap",               //select your logo by semantic-ui icon (you can get more msg in:https://semantic-ui.com/elements/icon.html)
   hitokoto: true,                     //use hitokoto or not
   search:true,                        //enable search function
   search_engine:[                     //choose search engine which you use
     {
-      name:"百 度",
+      name:"Baidu",
       template:"https://www.baidu.com/s?wd=$s"
     },
     {
-      name:"谷 歌",
+      name:"Google",
       template:"https://www.google.com/search?q=$s"
     },
     {
-      name:"必 应",
+      name:"Bing",
       template:"https://www.bing.com/search?q=$s"
     },
     {
-      name:"搜 狗",
+      name:"Sogou",
       template:"https://www.sogou.com/web?query=$s"
     }
   ],
@@ -39,28 +39,28 @@ const config = {
   },
   lists: [                            //Url list
     {
-      name:"技术",
+      name:"Teknologi",
       icon:"code",
       list:[
         {
           url:"https://oschina.net/",
-          name:"开源中国",
-          desc:"程序员集散地"
+          name:"Open Source China",
+          desc:"Pusat distribusi programmer"
         },
         {
           url:"https://v2ex.com",
           name:"V2EX",
-          desc:"程序员集散地"
+          desc:"Pusat distribusi programmer"
         },
         {
           url:"https://csdn.net/",
           name:"CSDN技术社区",
-          desc:"程序员集散地"
+          desc:"Pusat distribusi programmer"
         },
         {
           url:"https://github.com/",
           name:"Github",
-          desc:"程序员集散地"
+          desc:"Pusat distribusi programmer"
         },
       ]
     },
@@ -71,22 +71,22 @@ const config = {
         {
           url:"https://w3school.com.cn/",
           name:"W3school在线教程",
-          desc:"程序员集散地"
+          desc:"Pusat distribusi programmer"
         },
         {
           url:"https://runoob.com/",
           name:"菜鸟教程",
-          desc:"程序员集散地"
+          desc:"Pusat distribusi programmer"
         },
         {
           url:"https://segmentfault.com/",
           name:"思否社区",
-          desc:"程序员集散地"
+          desc:"Pusat distribusi programmer"
         },
         {
           url:"https://jianshu.com/",
           name:"简书",
-          desc:"程序员集散地"
+          desc:"Pusat distribusi programmer"
         },
       ]
     }
