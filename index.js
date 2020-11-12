@@ -66,7 +66,7 @@ const config = {
           desc:"Pusat distribusi programmer"
         },
         {
-          url:"https://github.com",
+          url:"https://www.github.com",
           name:"GitHub",
           desc:"Pusat distribusi programmer"
         },
@@ -77,13 +77,13 @@ const config = {
       icon:"graduation cap",
       list:[
         {
-          url:"https://w3school.com.cn/",
+          url:"https://www.w3schools.com/",
           name:"W3School",
           desc:"Pusat distribusi programmer"
         },
         {
-          url:"https://runoob.com/",
-          name:"Runoob",
+          url:"https://glitch.me/",
+          name:"Glitch",
           desc:"Pusat distribusi programmer"
         },
         {
