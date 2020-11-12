@@ -17,6 +17,10 @@ const config = {
       template:"https://www.bing.com/search?q=$s"
     },
     {
+      name:"Yandex",
+      template:"https://yandex.com/search/?text=$s"
+    },    
+    {
       name:"Baidu",
       template:"https://www.baidu.com/s?wd=$s"
     },    
@@ -59,7 +63,7 @@ const config = {
         },
         {
           url:"https://github.com/",
-          name:"Github",
+          name:"GitHub",
           desc:"Pusat distribusi programmer"
         },
       ]
@@ -112,10 +116,10 @@ addEventListener('fetch', event => {
 function getFavicon(url){
   if(url.match(/https{0,1}:\/\//)){
     //return "https://ui-avatars.com/api/?bold=true&size=36&background=0D8ABC&color=fff&rounded=true&name=" + url.split('//')[1];
-    return "https://www.google.co.id/s2/favicons?sz=64&domain_url=" + url;
+    return "https://www.google.cn/s2/favicons?sz=64&domain_url=" + url;
   }else{
     //return "https://ui-avatars.com/api/?bold=true&size=36&background=0D8ABC&color=fff&rounded=true&name=" + url;
-    return "https://www.google.co.id/s2/favicons?sz=64&domain_url=http://" + url;
+    return "https://www.google.cn/s2/favicons?sz=64&domain_url=http://" + url;
   } 
 }
 
@@ -124,7 +128,7 @@ function getFavicon(url){
  */
 
 function renderIndex(){
-  const footer = el('footer',[],el('div',['class="footer"'],'Powered by' + el('a',['class="ui label"','href="https://github.com/kiprox/cf-worker-dir"','target="_blank"'],el('i',['class="github icon"'],"") + 'Cf-Worker-Dir') + ' &copy; Base on ' + el('a',['class="ui label"'],el('i',['class="balance scale icon"'],"") + 'MIT License')));
+  const footer = el('footer',[],el('div',['class="footer"'],'Powered by' + el('a',['class="ui label"','href="https://tanet.eu.org/"','target="_blank"'],el('i',['class="github icon"'],"") + 'tanet.eu.org') + ' &copy; Base on ' + el('a',['class="ui label"'],el('i',['class="balance scale icon"'],"") + 'MIT License')));
   return renderHeader() + renderMain() + footer;
 }
 
@@ -140,7 +144,7 @@ function renderHeader(){
       return item(link.template,link.name);
     }
   }).join(""))
-  var input = el('div',['class="ui left corner labeled right icon fluid large input"'],el('div',['class="ui left corner label"'],el('img',['id="search-fav"','class="left floated avatar ui image"','src="https://www.baidu.com/favicon.ico"'],"")) + el('input',['id="searchinput"','type="search"','placeholder="Telusuri apa yang ingin Anda ketahui ..."','autocomplete="off"'],"") + el('i',['class="inverted circular search link icon"'],""));
+  var input = el('div',['class="ui left corner labeled right icon fluid large input"'],el('div',['class="ui left corner label"'],el('img',['id="search-fav"','class="left floated avatar ui image"','src="https://www.google.com/favicon.ico"'],"")) + el('input',['id="searchinput"','type="search"','placeholder="Telusuri apa yang ingin Anda ketahui ..."','autocomplete="off"'],"") + el('i',['class="inverted circular search link icon"'],""));
   return el('header',[],el('div',['id="head"','class="ui inverted vertical masthead center aligned segment"'],(config.hitokoto ? el('div',['id="nav"','class="ui container"'],nav) : "") + el('div',['id="title"','class="ui text container"'],title + (config.search ? input + menu :"") + `${config.selling_ads ? '<div><a id="menubtn" class="red ui icon inverted button"><i class="heart icon"></i> Seperti domain ini </a></div>' : ''}`)))
 }
 
