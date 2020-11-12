@@ -9,10 +9,6 @@ const config = {
   search:true,                        //enable search function
   search_engine:[                     //choose search engine which you use
     {
-      name:"Baidu",
-      template:"https://www.baidu.com/s?wd=$s"
-    },
-    {
       name:"Google",
       template:"https://www.google.com/search?q=$s"
     },
@@ -20,6 +16,10 @@ const config = {
       name:"Bing",
       template:"https://www.bing.com/search?q=$s"
     },
+    {
+      name:"Baidu",
+      template:"https://www.baidu.com/s?wd=$s"
+    },    
     {
       name:"Sogou",
       template:"https://www.sogou.com/web?query=$s"
