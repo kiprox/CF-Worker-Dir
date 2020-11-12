@@ -65,7 +65,7 @@ const config = {
       ]
     },
     {
-      name:"Learn",
+      name:"Belajar",
       icon:"graduation cap",
       list:[
         {
