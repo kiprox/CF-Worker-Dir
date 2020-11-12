@@ -66,8 +66,8 @@ const config = {
           desc:"Pusat distribusi programmer"
         },
         {
-          url:"https://www.github.com",
-          name:"GitHub",
+          url:"https://bitbucket.org/",
+          name:"BitBucket",
           desc:"Pusat distribusi programmer"
         },
       ]
