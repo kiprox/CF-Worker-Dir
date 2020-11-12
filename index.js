@@ -2,10 +2,10 @@
  *  Konfigurasi situs web kustom 
  */
 const config = {
-  title: "Navigasi kustom",                 //write your website title
-  subtitle: "Cloudflare Workers Dir", //write your website subtitle
+  title: "Mesin Pencari",                 //write your website title
+  subtitle: "Bookmark Situs", //write your website subtitle
   logo_icon: "sitemap",               //select your logo by semantic-ui icon (you can get more msg in:https://semantic-ui.com/elements/icon.html)
-  hitokoto: true,                     //use hitokoto or not
+  hitokoto: false,                     //use hitokoto or not
   search:true,                        //enable search function
   search_engine:[                     //choose search engine which you use
     {
@@ -25,11 +25,11 @@ const config = {
       template:"https://www.sogou.com/web?query=$s"
     }
   ],
-  selling_ads: true,                  //Selling your domain or not.(turning on may be helpful for selling this domain by showing some ads.)
+  selling_ads: false,                  //Selling your domain or not.(turning on may be helpful for selling this domain by showing some ads.)
   sell_info:{
-    domain:"example.com",
+    domain:"contoh.com",
     price:500,                        //domain price
-    mon_unit:"yen sign",              //monetary unit 
+    mon_unit:"usd sign",              //monetary unit 
     contact:[                         //how to contact you
       {
         type:"envelope",               //contact type ("weixin","qq","telegram plane","envelope" or "phone")
@@ -54,7 +54,7 @@ const config = {
         },
         {
           url:"https://csdn.net/",
-          name:"CSDN技术社区",
+          name:"CSDN",
           desc:"Pusat distribusi programmer"
         },
         {
@@ -65,27 +65,27 @@ const config = {
       ]
     },
     {
-      name:"学习",
+      name:"Learn",
       icon:"graduation cap",
       list:[
         {
           url:"https://w3school.com.cn/",
-          name:"W3school在线教程",
+          name:"W3School",
           desc:"Pusat distribusi programmer"
         },
         {
           url:"https://runoob.com/",
-          name:"菜鸟教程",
+          name:"Runoob",
           desc:"Pusat distribusi programmer"
         },
         {
           url:"https://segmentfault.com/",
-          name:"思否社区",
+          name:"S-Fault",
           desc:"Pusat distribusi programmer"
         },
         {
           url:"https://jianshu.com/",
-          name:"简书",
+          name:"Jianshu",
           desc:"Pusat distribusi programmer"
         },
       ]
@@ -106,32 +106,32 @@ addEventListener('fetch', event => {
   return event.respondWith(handleRequest(event.request))
 })
 
-/*通过分析链接 实时获取favicon
-* @url 需要分析的Url地址
+/*Real-time access through the analysis link favicon
+* @url address to be analyzed
 */
 function getFavicon(url){
   if(url.match(/https{0,1}:\/\//)){
     //return "https://ui-avatars.com/api/?bold=true&size=36&background=0D8ABC&color=fff&rounded=true&name=" + url.split('//')[1];
-    return "https://www.google.cn/s2/favicons?sz=64&domain_url=" + url;
+    return "https://www.google.co.id/s2/favicons?sz=64&domain_url=" + url;
   }else{
     //return "https://ui-avatars.com/api/?bold=true&size=36&background=0D8ABC&color=fff&rounded=true&name=" + url;
-    return "https://www.google.cn/s2/favicons?sz=64&domain_url=http://" + url;
+    return "https://www.google.co.id/s2/favicons?sz=64&domain_url=http://" + url;
   } 
 }
 
 /** Render Functions
- *  渲染模块函数
+ *  Rendering module function
  */
 
 function renderIndex(){
-  const footer = el('footer',[],el('div',['class="footer"'],'Powered by' + el('a',['class="ui label"','href="https://github.com/sleepwood/cf-worker-dir"','target="_blank"'],el('i',['class="github icon"'],"") + 'Cf-Worker-Dir') + ' &copy; Base on ' + el('a',['class="ui label"'],el('i',['class="balance scale icon"'],"") + 'MIT License')));
+  const footer = el('footer',[],el('div',['class="footer"'],'Powered by' + el('a',['class="ui label"','href="https://github.com/kiprox/cf-worker-dir"','target="_blank"'],el('i',['class="github icon"'],"") + 'Cf-Worker-Dir') + ' &copy; Base on ' + el('a',['class="ui label"'],el('i',['class="balance scale icon"'],"") + 'MIT License')));
   return renderHeader() + renderMain() + footer;
 }
 
 function renderHeader(){
   const item = (template,name) => el('a',['class="item"',`data-url="${template}"`],name);
 
-  var nav = el('div',['class="ui large secondary inverted menu"'],el('div',['class="item"'],el('p',['id="hitokoto"'],'条条大路通罗马')))
+  var nav = el('div',['class="ui large secondary inverted menu"'],el('div',['class="item"'],el('p',['id="hitokoto"'],'All roads lead to Rome')))
   var title = el('h1',['class="ui inverted header"'],el('i',[`class="${config.logo_icon} icon"`],"") + el('div',['class="content"'],config.title + el('div',['class="sub header"'],config.subtitle)));
   var menu = el('div',['id="sengine"','class="ui bottom attached tabular inverted secondary menu"'],el('div',['class="header item"'],'&nbsp;') + config.search_engine.map((link,key) =>{
     if(key == 0){
@@ -140,8 +140,8 @@ function renderHeader(){
       return item(link.template,link.name);
     }
   }).join(""))
-  var input = el('div',['class="ui left corner labeled right icon fluid large input"'],el('div',['class="ui left corner label"'],el('img',['id="search-fav"','class="left floated avatar ui image"','src="https://www.baidu.com/favicon.ico"'],"")) + el('input',['id="searchinput"','type="search"','placeholder="搜索你想要知道的……"','autocomplete="off"'],"") + el('i',['class="inverted circular search link icon"'],""));
-  return el('header',[],el('div',['id="head"','class="ui inverted vertical masthead center aligned segment"'],(config.hitokoto ? el('div',['id="nav"','class="ui container"'],nav) : "") + el('div',['id="title"','class="ui text container"'],title + (config.search ? input + menu :"") + `${config.selling_ads ? '<div><a id="menubtn" class="red ui icon inverted button"><i class="heart icon"></i> 喜欢此域名 </a></div>' : ''}`)))
+  var input = el('div',['class="ui left corner labeled right icon fluid large input"'],el('div',['class="ui left corner label"'],el('img',['id="search-fav"','class="left floated avatar ui image"','src="https://www.baidu.com/favicon.ico"'],"")) + el('input',['id="searchinput"','type="search"','placeholder="Telusuri apa yang ingin Anda ketahui ..."','autocomplete="off"'],"") + el('i',['class="inverted circular search link icon"'],""));
+  return el('header',[],el('div',['id="head"','class="ui inverted vertical masthead center aligned segment"'],(config.hitokoto ? el('div',['id="nav"','class="ui container"'],nav) : "") + el('div',['id="title"','class="ui text container"'],title + (config.search ? input + menu :"") + `${config.selling_ads ? '<div><a id="menubtn" class="red ui icon inverted button"><i class="heart icon"></i> Seperti domain ini </a></div>' : ''}`)))
 }
 
 function renderMain() {
@@ -161,15 +161,15 @@ function renderMain() {
 
 function renderSeller() {
   const item = (type,content) => el('div',['class="item"'],el('i',[`class="${type} icon"`],"") + el('div',['class="content"'],content));
-  var title = el('h1',['class="ui yellow dividing header"'],el('i',['class="gem outline icon"'],"") + el('div',['class="content"'],config.sell_info.domain + ' 正在出售'));
-  var action = el('div',['class="actions"'],el('div',['class="ui basic cancel inverted button"'],el('i',['class="reply icon"'],"") + '返回'));
+  var title = el('h1',['class="ui yellow dividing header"'],el('i',['class="gem outline icon"'],"") + el('div',['class="content"'],config.sell_info.domain + ' Dijual'));
+  var action = el('div',['class="actions"'],el('div',['class="ui basic cancel inverted button"'],el('i',['class="reply icon"'],"") + 'kembali'));
 
   var contact = config.sell_info.contact.map((list) => {
     return item(list.type,list.content);
   }).join("");
-  var column = el('div',['class="column"'],el('h3',['class="ui center aligned icon inverted header"'],el('i',['class="circular envelope open outline grey inverted icon"'],"") + '联系我') + el('div',['class="ui relaxed celled large list"'],contact));
+  var column = el('div',['class="column"'],el('h3',['class="ui center aligned icon inverted header"'],el('i',['class="circular envelope open outline grey inverted icon"'],"") + 'hubungi saya') + el('div',['class="ui relaxed celled large list"'],contact));
   var price = el('div',['class="column"'],el('div',['class="ui large yellow statistic"'],el('div',['class="value"'],el('i',[`class="${config.sell_info.mon_unit} icon"`],"") + config.sell_info.price)));
-  var content = el('div',['class="content"'],el('div',['class="ui basic segment"'],el('div',['class="ui two column stackable center aligned grid"'],el('div',['class="ui inverted vertical divider"'],'感兴趣？') + el('div',['class="middle aligned row"'],price + column))));
+  var content = el('div',['class="content"'],el('div',['class="ui basic segment"'],el('div',['class="ui two column stackable center aligned grid"'],el('div',['class="ui inverted vertical divider"'],'Tertarik?') + el('div',['class="middle aligned row"'],price + column))));
 
   return el('div',['id="seller"','class="ui basic modal"'],title + content + action);
 }
@@ -183,7 +183,7 @@ function renderHTML(index,seller) {
       <meta http-equiv="X-UA-Compatible" content="ie=edge">
       <title>${config.title} - ${config.subtitle}</title>
       <link href="https://cdn.jsdelivr.net/npm/semantic-ui-css@2.4.1/semantic.min.css" rel="stylesheet">
-      <link href="https://cdn.jsdelivr.net/gh/sleepwood/cf-worker-dir@0.1.1/style.css" rel="stylesheet">
+      <link href="https://cdn.jsdelivr.net/gh/kiprox/cf-worker-dir@0.1.1/style.css" rel="stylesheet">
       <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/semantic-ui-css@2.4.1/semantic.min.js"></script>
   </head>
@@ -202,10 +202,10 @@ function renderHTML(index,seller) {
           url = url.replace(`+/\$s/+`,$('#searchinput').val());
           window.open(url);
       });
-      /* 鼠标聚焦时，回车事件 */
+      /* When the mouse is focused, the carriage return event */
       $("#searchinput").bind("keypress", function(){
           if (event.keyCode == 13){
-          // 触发需要调用的方法
+          // Trigger the method to be called
           $(".search").click();
           }
       });
@@ -214,6 +214,5 @@ function renderHTML(index,seller) {
       });
     </script>
   </body>
-
   </html>`
 }
