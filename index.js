@@ -17,8 +17,12 @@ const config = {
       template:"https://www.bing.com/search?q=$s"
     },
     {
+      name:"DuckGo",
+      template:"https://www.duckduckgo.com/?q=$s&t=h_&ia=web"
+    },    
+    {
       name:"Yandex",
-      template:"https://yandex.com/search/?text=$s"
+      template:"https://www.yandex.com/search?text=$s&lr=112644&redircnt=1605173881.1"
     },    
     {
       name:"Baidu",
@@ -62,7 +66,7 @@ const config = {
           desc:"Pusat distribusi programmer"
         },
         {
-          url:"https://github.com/",
+          url:"https://github.com",
           name:"GitHub",
           desc:"Pusat distribusi programmer"
         },
